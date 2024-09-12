@@ -1,0 +1,24 @@
+.RegisterButton {
+  width: var(--buttons-width);
+
+  padding: var(--button-padding);
+
+  background-color: var(--main-button-bg);
+  color: var(--main-button-color);
+
+  border-radius: var(--button-border-radius);
+  border-color: var(--main-button-border);
+  border-width: var(--button-border-thickness);
+  border-style: solid;
+
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--main-button-shadow-hover);
+  }
+
+  &:active {
+    box-shadow: var(--main-button-shadow-active);
+    border-style: solid;
+  }
+}
