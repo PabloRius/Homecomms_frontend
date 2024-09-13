@@ -5,8 +5,8 @@ import "./IconButton.css";
 interface IconButtonInterface {
   Icon: IconType;
   callback: () => object | void | null;
-  classes: string[];
-  size: string;
+  classes?: string[];
+  size: "sm" | "md" | "lg";
 }
 
 export function IconButton({
@@ -17,13 +17,12 @@ export function IconButton({
 }: IconButtonInterface) {
   return (
     <button
-      className={`IconButton ${classes.join(" ")}`}
-      style={{ height: size }}
+      className={`IconButton ${classes?.join(" ")} ${size}`}
       onClick={() => {
         callback();
       }}
     >
-      <Icon />
+      <Icon size={size === "md" ? "24px" : size === "lg" ? "30px" : "18px"} />
     </button>
   );
 }

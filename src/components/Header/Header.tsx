@@ -15,24 +15,10 @@ export function Header() {
     setResponsive((prev) => !prev);
   };
 
-  const padding = 10;
   const logoSize = 50;
-  const rowGap = 10;
-  const buttonSize = 40;
-
-  const headerStyle: { [key: string]: string | number } = {
-    rowGap: `${rowGap}px`,
-    padding: `${padding}px 0`,
-  };
-
-  if (responsive)
-    headerStyle["height"] = `${logoSize + rowGap + buttonSize + padding * 2}px`;
 
   return (
-    <nav
-      className={`Header ${responsive ? "Responsive" : ""}`}
-      style={headerStyle}
-    >
+    <header className={`${responsive ? "Responsive" : ""}`}>
       <Logo size={`${logoSize}px`} />
       <NavigationPillList
         list="default"
@@ -43,8 +29,8 @@ export function Header() {
         Icon={IoMenuSharp}
         callback={toggleHeader}
         classes={["ResponsiveButton"]}
-        size={`${buttonSize}px`}
+        size={"sm"}
       />
-    </nav>
+    </header>
   );
 }

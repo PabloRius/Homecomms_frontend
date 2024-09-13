@@ -13,6 +13,8 @@
 
   transition: box-shadow 0.2s ease;
 
+  font-size: var(--font-size);
+
   &:hover {
     box-shadow: var(--main-button-shadow-hover);
   }
