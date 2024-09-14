@@ -1,0 +1,15 @@
+.NavigationLink {
+  border: none;
+  background-color: transparent;
+  line-height: 20px;
+  border-bottom: solid 2px transparent;
+  transition: border-bottom 0.2s ease;
+
+  &:hover {
+    border-bottom: solid 2px grey;
+  }
+
+  &:active {
+    border-bottom: solid 2px black;
+  }
+}
