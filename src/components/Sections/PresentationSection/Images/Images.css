@@ -1,0 +1,22 @@
+.Images {
+  padding: 64px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  column-gap: 48px;
+  row-gap: 48px;
+
+  > li {
+    list-style: none;
+    flex: 1 1 clamp(250px, 25%, 300px);
+    max-width: 100%;
+
+    > img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}

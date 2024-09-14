@@ -5,7 +5,7 @@ import "./PresentationSection.css";
 
 export function PresentationSection() {
   return (
-    <section>
+    <section className="PresentationSection">
       <Images />
       <Vision />
     </section>

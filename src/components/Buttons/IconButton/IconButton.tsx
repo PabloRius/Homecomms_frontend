@@ -7,6 +7,7 @@ interface IconButtonInterface {
   callback: () => object | void | null;
   classes?: string[];
   size: "sm" | "md" | "lg";
+  color?: string;
 }
 
 export function IconButton({
@@ -14,6 +15,7 @@ export function IconButton({
   callback,
   classes,
   size,
+  color = "black",
 }: IconButtonInterface) {
   return (
     <button
@@ -22,7 +24,10 @@ export function IconButton({
         callback();
       }}
     >
-      <Icon size={size === "md" ? "24px" : size === "lg" ? "30px" : "18px"} />
+      <Icon
+        size={size === "md" ? "24px" : size === "lg" ? "30px" : "18px"}
+        color={color}
+      />
     </button>
   );
 }
