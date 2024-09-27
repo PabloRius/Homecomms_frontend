@@ -12,9 +12,6 @@
   &.Important {
     background-color: rgba(128, 128, 128, 0.1);
   }
-  &.Selected {
-    text-decoration: underline;
-  }
 
   &:hover {
     background-color: rgba(128, 128, 128, 0.2);

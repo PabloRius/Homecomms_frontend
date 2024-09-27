@@ -1,7 +1,9 @@
+import { useLocation } from "react-router-dom";
 import { NavigationPill } from "../NavigationPill/NavigationPill";
 import { DefaultNavigationPillListDefinition } from "../NavigationPillListDefinition";
 
 import "./NavigationPillList.css";
+import { useEffect } from "react";
 
 interface NavigationPillListProps {
   list: "default";
@@ -9,6 +11,12 @@ interface NavigationPillListProps {
 }
 
 export function NavigationPillList({ list, classes }: NavigationPillListProps) {
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log(location.pathname);
+  }, [location]);
+
   const pillList =
     list === "default" ? DefaultNavigationPillListDefinition : null;
 
@@ -16,7 +24,11 @@ export function NavigationPillList({ list, classes }: NavigationPillListProps) {
     <menu className={`NavigationPillList ${classes.join(" ")}`}>
       {pillList &&
         pillList.map((pill) => (
-          <NavigationPill title={pill.title} important={pill.important} />
+          <NavigationPill
+            title={pill.title}
+            route={pill.route}
+            important={pill.route === location.pathname}
+          />
         ))}
     </menu>
   );

@@ -1,21 +1,27 @@
+import { useNavigate } from "react-router-dom";
 import "./NavigationPill.css";
 
 interface NavigationPillProps {
   title: string;
+  route: string;
   important: boolean;
-  selected?: boolean;
 }
 
 export function NavigationPill({
   title,
-  important,
-  selected = false,
+  route,
+  important = false,
 }: NavigationPillProps) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(route);
+  };
+
   return (
     <button
-      className={`NavigationPill ${important ? "Important" : ""} ${
-        selected ? "Selected" : ""
-      }`}
+      className={`NavigationPill ${important ? "Important" : ""}`}
+      onClick={handleClick}
     >
       {title}
     </button>

@@ -1,7 +1,7 @@
 export const DefaultNavigationPillListDefinition = [
-  { title: "Pricing", important: true },
-  { title: "Solutions", important: false },
-  { title: "Community", important: false },
-  { title: "Resources", important: false },
-  { title: "Contact", important: false },
+  { title: "Home", route: "/" },
+  { title: "About", route: "/about" },
+  { title: "Contact", route: "/contact" },
+  { title: "Pricing", route: "/pricing" },
+  { title: "Policy", route: "/policy" },
 ];

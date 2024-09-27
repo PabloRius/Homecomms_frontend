@@ -1,0 +1,14 @@
+.NavigationProfile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 10px;
+
+  img {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+}

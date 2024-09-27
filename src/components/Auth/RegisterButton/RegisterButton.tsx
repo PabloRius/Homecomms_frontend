@@ -1,5 +1,11 @@
 import "./RegisterButton.css";
 
 export function RegisterButton() {
-  return <button className="RegisterButton">Register</button>;
+  const handleRegister = () => {};
+
+  return (
+    <button onClick={handleRegister} className="RegisterButton">
+      Register
+    </button>
+  );
 }
