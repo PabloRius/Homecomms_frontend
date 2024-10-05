@@ -4,9 +4,9 @@ import { ImagesData } from "./ImagesData";
 export function Images() {
   return (
     <ul className="Images">
-      {ImagesData.map((image) => {
+      {ImagesData.map((image, idx) => {
         return (
-          <li>
+          <li key={idx}>
             <img src={image.src} alt={image.alt} />
           </li>
         );

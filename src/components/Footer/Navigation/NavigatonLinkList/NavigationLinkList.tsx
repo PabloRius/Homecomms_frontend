@@ -13,13 +13,18 @@ export function NavigationLinkList({ list }: NavigationLinkListProps) {
 
   return (
     <section className="NavigationLinkList">
-      {linkList?.map((link) => {
+      {linkList?.map((link, idx_1) => {
         return (
-          <menu className="Column" key={link.title}>
+          <menu className="Column" key={idx_1}>
             <h6>{link.title}</h6>
             <ul className="Body">
-              {link.subtitles.map((sublink) => {
-                return <NavigationLink title={sublink.subtitle} />;
+              {link.subtitles.map((sublink, idx_2) => {
+                return (
+                  <NavigationLink
+                    title={sublink.subtitle}
+                    key={`${idx_1}_${idx_2}`}
+                  />
+                );
               })}
             </ul>
           </menu>

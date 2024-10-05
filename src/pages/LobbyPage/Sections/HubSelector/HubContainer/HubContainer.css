@@ -1,0 +1,64 @@
+.HubContainer {
+  border: 1px solid #ddd;
+  padding: 15px 25px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+  row-gap: 5px;
+
+  height: 140px;
+
+  display: flex;
+  flex-direction: column;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+
+    img {
+      width: 50px;
+      aspect-ratio: 1;
+      border-radius: 100%;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .HubContainer {
+    height: 120px;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      column-gap: 5px;
+
+      img {
+        width: 35px;
+        aspect-ratio: 1;
+        border-radius: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .HubContainer {
+    height: 100px;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      column-gap: 2px;
+
+      img {
+        width: 25px;
+        aspect-ratio: 1;
+        border-radius: 100%;
+      }
+    }
+  }
+}

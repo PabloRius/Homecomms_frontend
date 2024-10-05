@@ -1,11 +1,10 @@
-import { UseAppDispatch } from "../../../store/hooks";
-import { login } from "../../../store/userSlice";
+import { useNavigate } from "react-router-dom";
 import "./SignInButton.css";
 
 export function SignInButton() {
-  const dispatch = UseAppDispatch();
+  const navigate = useNavigate();
   const handleLogin = () => {
-    dispatch(login({ username: "Test User", email: "Test Email" }));
+    navigate("/signIn");
   };
   return (
     <button onClick={handleLogin} className="SignInButton">

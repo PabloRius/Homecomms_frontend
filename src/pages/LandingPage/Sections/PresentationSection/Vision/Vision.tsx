@@ -9,9 +9,9 @@ export function Vision() {
         <p>How we can help in making your life easier</p>
       </span>
       <ul>
-        {VisionData.map((vision) => {
+        {VisionData.map((vision, idx) => {
           return (
-            <li>
+            <li key={idx}>
               <div className="Icon">
                 <vision.icon size="24px" />
               </div>

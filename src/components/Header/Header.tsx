@@ -7,12 +7,12 @@ import { IoMenuSharp } from "react-icons/io5";
 
 import "./Header.css";
 import { useState } from "react";
-import { useAppSelector } from "../../store/hooks";
 import { NavigationProfile } from "../Auth/NavigationProfile/NavigationProfile";
+import { useAuth } from "../../hooks/useAuth";
 
 export function Header() {
   const [responsive, setResponsive] = useState(true);
-  const { isLoggedIn } = useAppSelector((state) => state.user);
+  const { user, loading } = useAuth();
 
   const toggleHeader = () => {
     setResponsive((prev) => !prev);
@@ -27,8 +27,10 @@ export function Header() {
         list="default"
         classes={responsive ? ["ResponsiveNav"] : []}
       />
-      {!isLoggedIn ? (
+      {!user && !loading ? (
         <NavigationAuth classes={responsive ? ["ResponsiveNav"] : []} />
+      ) : !user && loading ? (
+        <></>
       ) : (
         <NavigationProfile classes={responsive ? ["ResponsiveNav"] : []} />
       )}
