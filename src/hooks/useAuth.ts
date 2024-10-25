@@ -1,58 +1,71 @@
-import { useState } from "react";
 import axios, { isAxiosError } from "axios";
-
-import { loginPayload, registerPayload } from "../models/User";
 import { useNavigate } from "react-router-dom";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
 
+import {
+  loginFail,
+  loginStart,
+  loginSuccess,
+  registerStart,
+  registerFail,
+  registerSuccess,
+  appState,
+} from "../store/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+
+import { loginPayload, registerPayload } from "../models/User";
+
 export function useAuth() {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const dispatch = useDispatch();
+  const { loading, error } = useSelector(
+    (state: { user: appState }) => state.user
+  );
   const register = async (registerData: registerPayload) => {
     try {
-      setLoading(true);
+      dispatch(registerStart());
       const res = await axios.post(
         "http://localhost:5211/api/auth/register",
         registerData
       );
-      const data = await res.data;
-      if (data) navigate("/login");
+      if (res.status === StatusCodes.OK) {
+        dispatch(registerSuccess());
+        navigate("/login");
+      }
     } catch (err) {
       if (isAxiosError(err)) {
-        setError(ReasonPhrases.INTERNAL_SERVER_ERROR);
+        dispatch(registerFail(ReasonPhrases.INTERNAL_SERVER_ERROR));
       } else {
         console.error(err);
-        setError(`Error during register: ${err}`);
+        dispatch(registerFail(`Error during register: ${err}`));
       }
-    } finally {
-      setLoading(false);
     }
   };
   const login = async (loginData: loginPayload) => {
     try {
-      setLoading(true);
+      dispatch(loginStart());
       const res = await axios.post(
         "http://localhost:5211/api/auth/login",
         loginData,
         { withCredentials: true }
       );
       const data = await res.data;
-      console.log(data);
-      if (data) navigate("/");
+
+      if (data) {
+        dispatch(loginSuccess(data));
+        navigate("/");
+      }
     } catch (err) {
       if (isAxiosError(err)) {
         if (err.status === StatusCodes.UNAUTHORIZED) {
-          setError("Invalid email or password");
+          dispatch(loginFail("Invalid email or password"));
         } else {
-          setError("Internal Server Error");
+          dispatch(loginFail("Internal Server Error"));
         }
       } else {
         console.error(err);
-        setError(`Error during login: ${err}`);
+        dispatch(loginFail(`Error during login: ${err}`));
       }
-    } finally {
-      setLoading(false);
     }
   };
 

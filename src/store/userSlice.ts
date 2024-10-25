@@ -1,42 +1,53 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { loginPayload } from "../models/User";
 
-interface userState {
-  username?: string;
-  email?: string;
-  userId?: string;
-  isLoggedIn: boolean;
+export interface appState {
+  currentUser: loginPayload | null;
+  loading: boolean;
+  error: string | null;
 }
 
-const initialState: userState = {
-  username: undefined,
-  email: undefined,
-  userId: undefined,
-  isLoggedIn: false,
+const initialState: appState = {
+  currentUser: null,
+  loading: false,
+  error: null,
 };
-
-interface Loginpayload {
-  username: string;
-  email: string;
-  userId: string;
-}
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    login(state, action: PayloadAction<Loginpayload>) {
-      state.username = action.payload.username;
-      state.userId = action.payload.userId;
-      state.email = action.payload.email;
-      state.isLoggedIn = true;
+    loginStart(state) {
+      state.loading = true;
     },
-    logout(state) {
-      state.username = undefined;
-      state.email = undefined;
-      state.isLoggedIn = false;
+    loginSuccess(state, action) {
+      state.currentUser = action.payload;
+      state.loading = false;
+      state.error = null;
+    },
+    loginFail(state, action) {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    registerStart(state) {
+      state.loading = true;
+    },
+    registerSuccess(state) {
+      state.loading = false;
+      state.error = null;
+    },
+    registerFail(state, action) {
+      (state.loading = false), (state.error = action.payload);
     },
   },
 });
 
-export const { login, logout } = userSlice.actions;
+export const {
+  loginStart,
+  loginSuccess,
+  loginFail,
+  registerStart,
+  registerSuccess,
+  registerFail,
+} = userSlice.actions;
 export default userSlice.reducer;
