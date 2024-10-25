@@ -1,5 +1,5 @@
 import { HeroSection } from "./Sections/HeroSection/HeroSection";
-import { HubSelector } from "./Sections/HubSelector/HubSelector";
+// import { HubSelector } from "./Sections/HubSelector/HubSelector";
 
 import "./LobbyPage.css";
 import { Outlet } from "react-router-dom";
@@ -11,7 +11,7 @@ export function LobbyPage() {
         title="Welcome to your Lobby"
         subtitle="Here you can administrate your hubs and add new ones"
       />
-      <HubSelector />
+      {/* <HubSelector /> */}
       <Outlet />
     </div>
   );

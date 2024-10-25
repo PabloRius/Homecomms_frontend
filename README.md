@@ -54,7 +54,6 @@ npm install
 Run the application:
 
 ```bash
-bash
 npm run dev
 ```
 
@@ -120,7 +119,6 @@ npm install
 Correr la aplicación:
 
 ```bash
-bash
 npm run dev
 ```
 

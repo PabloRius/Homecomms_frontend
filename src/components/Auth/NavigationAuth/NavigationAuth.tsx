@@ -1,5 +1,5 @@
 import { RegisterButton } from "../RegisterButton/RegisterButton";
-import { SignInButton } from "../SignInButton/SignInButton";
+import { LoginButton } from "../LoginButton/LoginButton";
 
 import "./NavigationAuth.css";
 
@@ -11,7 +11,7 @@ interface NavigationAuthProps {
 export function NavigationAuth({ classes, size = "md" }: NavigationAuthProps) {
   return (
     <menu className={`NavigationAuth ${classes?.join(" ")} ${size}`}>
-      <SignInButton />
+      <LoginButton />
       <RegisterButton />
     </menu>
   );

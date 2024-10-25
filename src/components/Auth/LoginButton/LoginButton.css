@@ -1,4 +1,4 @@
-.SignInButton {
+.LoginButton {
   width: var(--buttons-width);
 
   padding: var(--button-padding);

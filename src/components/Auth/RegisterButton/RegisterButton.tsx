@@ -4,7 +4,7 @@ import "./RegisterButton.css";
 export function RegisterButton() {
   const navigate = useNavigate();
   const handleRegister = () => {
-    navigate("/SignUp");
+    navigate("/register");
   };
 
   return (

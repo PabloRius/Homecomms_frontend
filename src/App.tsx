@@ -6,11 +6,11 @@ import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 
 import "./App.css";
 import { LobbyPage } from "./pages/LobbyPage/LobbyPage";
-import { ProtectedRoute } from "./ProtectedRoute";
+// import { ProtectedRoute } from "./ProtectedRoute";
 import { HubsPage } from "./pages/HubsPage/HubsPage";
 import { Hub } from "./pages/Hub/Hub";
 import { LoginPage } from "./pages/Auth/LoginPage/LoginPage";
-import { SignUp } from "./pages/Auth/SignupPage/SignupPage";
+import { RegisterPage } from "./pages/Auth/RegisterPage/RegisterPage";
 
 export function App() {
   return (
@@ -19,10 +19,11 @@ export function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
 
-        <Route path="/signIn" element={<LoginPage />} />
-        <Route path="/signUp" element={<SignUp />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
 
-        <Route path="/lobby" element={<ProtectedRoute element={<Outlet />} />}>
+        <Route path="/lobby" element={<Outlet />}>
+          {/* <Route path="/lobby" element={<ProtectedRoute element={<Outlet />} />}> */}
           <Route path="" element={<LobbyPage />} />
           <Route path="hubs" element={<Outlet />}>
             <Route path="" element={<HubsPage />} />
