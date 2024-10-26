@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import "./NavigationPill.css";
 
 interface NavigationPillProps {
   title: string;

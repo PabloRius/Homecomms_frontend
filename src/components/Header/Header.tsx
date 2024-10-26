@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { IoMenuSharp } from "react-icons/io5";
 
 import { useAuth } from "../../hooks/useAuth";
 
-import { NavigationPillList } from "./Navigation/NavigationPillList/NavigationPillList";
+import { DefaultNavigationPillListDefinition } from "./NavigationPillListDefinition";
 
+import { NavigationPill } from "./NavigationPill";
 import { AuthButtons } from "../Auth/AuthButtons";
 import { ProfileMenu } from "../Auth/ProfileMenu";
 
@@ -12,7 +14,10 @@ import LogoImage from "../../images/brand/figma-logo-512.png";
 
 export function Header() {
   const [responsive, setResponsive] = useState(true);
+  const currentLocation = useLocation();
   const { currentUser } = useAuth();
+
+  const navigation = DefaultNavigationPillListDefinition;
 
   const toggleResponsive = () => {
     setResponsive((prev) => !prev);
@@ -29,21 +34,24 @@ export function Header() {
         />
       </div>
       <div className={responsive ? "ResponsiveHeader" : ""}>
-        <NavigationPillList
-          list="default"
-          classes={responsive ? ["ResponsiveNav"] : []}
-        />
+        <menu className="NavigationPillList">
+          {navigation &&
+            navigation.map((pill) => (
+              <NavigationPill
+                key={pill.title}
+                title={pill.title}
+                route={pill.route}
+                important={pill.route === currentLocation.pathname}
+              />
+            ))}
+        </menu>
         {currentUser ? <ProfileMenu /> : <AuthButtons />}
       </div>
       <button
         className="IconButton ResponsiveIconButton"
         onClick={toggleResponsive}
       >
-        <IoMenuSharp
-          // size={size === "md" ? "24px" : size === "lg" ? "30px" : "18px"}
-          size="24px"
-          color="black"
-        />
+        <IoMenuSharp size="24px" color="black" />
       </button>
     </header>
   );
