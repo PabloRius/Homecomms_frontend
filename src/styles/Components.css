@@ -99,3 +99,24 @@
     background-color: rgba(128, 128, 128, 0.5);
   }
 }
+
+.Loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  img {
+    mix-blend-mode: multiply;
+  }
+
+  &.Full {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}

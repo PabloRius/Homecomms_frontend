@@ -1,6 +1,4 @@
-import LoadSpinner from "../../../images/placeholder/loader.gif";
-
-import "./Loader.css";
+import LoadSpinner from "../images/placeholder/loader.gif";
 
 interface LoaderProps {
   full?: boolean;

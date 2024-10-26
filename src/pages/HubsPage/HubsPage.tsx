@@ -1,4 +1,4 @@
-import { Loader } from "../../components/Info/Loader/Loader";
+import { Loader } from "../../components/Loader";
 // import { useHubs } from "../../hooks/useHubs";
 
 import "./HubsPage.css";
