@@ -4,7 +4,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import placeholder from "../../../images/placeholder/profile.jpg";
 
 import "./NavigationProfile.css";
-import { SignOutButton } from "../SignOutButton/SignOutButton";
+import { SignOutButton } from "../LogoutButton";
 import { useState } from "react";
 
 interface NavigationProfileProps {

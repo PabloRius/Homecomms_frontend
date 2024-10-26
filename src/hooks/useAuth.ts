@@ -9,6 +9,7 @@ import {
   registerStart,
   registerFail,
   registerSuccess,
+  logout as storeLogout,
   appState,
 } from "../store/userSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -68,6 +69,15 @@ export function useAuth() {
       }
     }
   };
+  const logout = async () => {
+    try {
+      dispatch(storeLogout());
+    } catch (err) {
+      console.error("Error on Logout");
+    } finally {
+      navigate("/");
+    }
+  };
 
-  return { register, login, error, loading };
+  return { register, login, logout, error, loading };
 }

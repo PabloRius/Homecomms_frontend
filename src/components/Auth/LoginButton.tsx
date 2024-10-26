@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import "./LoginButton.css";
 
 export function LoginButton() {
   const navigate = useNavigate();
@@ -7,7 +6,7 @@ export function LoginButton() {
     navigate("/login");
   };
   return (
-    <button onClick={handleLogin} className="LoginButton">
+    <button onClick={handleLogin} className="SecondaryButton">
       Log In
     </button>
   );

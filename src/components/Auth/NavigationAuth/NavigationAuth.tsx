@@ -1,5 +1,5 @@
-import { RegisterButton } from "../RegisterButton/RegisterButton";
-import { LoginButton } from "../LoginButton/LoginButton";
+import { RegisterButton } from "../RegisterButton";
+import { LoginButton } from "../LoginButton";
 
 import "./NavigationAuth.css";
 

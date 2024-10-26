@@ -1,0 +1,53 @@
+.PrimaryButton {
+  width: var(--buttons-width);
+
+  padding: var(--button-padding);
+
+  background-color: var(--main-button-bg);
+  color: var(--main-button-color);
+
+  border-radius: var(--button-border-radius);
+  border-color: var(--main-button-border);
+  border-width: var(--button-border-thickness);
+  border-style: solid;
+
+  transition: box-shadow 0.2s ease;
+
+  font-size: var(--font-size);
+
+  &:hover {
+    box-shadow: var(--main-button-shadow-hover);
+  }
+
+  &:active {
+    box-shadow: var(--main-button-shadow-active);
+    border-style: solid;
+  }
+}
+
+.SecondaryButton {
+  width: var(--buttons-width);
+
+  padding: var(--button-padding);
+
+  background-color: var(--secondary-button-bg);
+  color: var(--secondary-button-color);
+
+  border-radius: var(--button-border-radius);
+  border-color: var(--secondary-button-border);
+  border-width: var(--button-border-thickness);
+  border-style: solid;
+
+  transition: box-shadow 0.2s ease;
+
+  font-size: var(--font-size);
+
+  &:hover {
+    box-shadow: var(--secondary-button-shadow-hover);
+  }
+
+  &:active {
+    box-shadow: var(--secondary-button-shadow-active);
+    border-style: solid;
+  }
+}

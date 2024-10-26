@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import "./RegisterButton.css";
 
 export function RegisterButton() {
   const navigate = useNavigate();
@@ -8,7 +7,7 @@ export function RegisterButton() {
   };
 
   return (
-    <button onClick={handleRegister} className="RegisterButton">
+    <button onClick={handleRegister} className="PrimaryButton">
       Register
     </button>
   );

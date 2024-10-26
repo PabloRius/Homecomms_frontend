@@ -4,13 +4,14 @@ import { Footer } from "./components/Footer/Footer";
 import { Outlet, Route, Routes } from "react-router-dom";
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 
-import "./App.css";
 import { LobbyPage } from "./pages/LobbyPage/LobbyPage";
 // import { ProtectedRoute } from "./ProtectedRoute";
 import { HubsPage } from "./pages/HubsPage/HubsPage";
 import { Hub } from "./pages/Hub/Hub";
 import { LoginPage } from "./pages/Auth/LoginPage/LoginPage";
 import { RegisterPage } from "./pages/Auth/RegisterPage/RegisterPage";
+
+import "./App.css";
 
 export function App() {
   return (
