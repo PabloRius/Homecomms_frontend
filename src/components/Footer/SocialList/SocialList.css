@@ -1,8 +1,0 @@
-.SocialList {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  column-gap: 16px;
-
-  list-style: none;
-}
