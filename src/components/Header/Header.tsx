@@ -11,6 +11,7 @@ import { AuthButtons } from "../Auth/AuthButtons";
 import { ProfileMenu } from "../Auth/ProfileMenu";
 
 import LogoImage from "../../images/brand/figma-logo-512.png";
+import { IconButton } from "../IconButton";
 
 export function Header() {
   const [responsive, setResponsive] = useState(true);
@@ -47,12 +48,7 @@ export function Header() {
         </menu>
         {currentUser ? <ProfileMenu /> : <AuthButtons />}
       </div>
-      <button
-        className="IconButton ResponsiveIconButton"
-        onClick={toggleResponsive}
-      >
-        <IoMenuSharp size="24px" color="black" />
-      </button>
+      <IconButton Icon={IoMenuSharp} callback={toggleResponsive}></IconButton>
     </header>
   );
 }

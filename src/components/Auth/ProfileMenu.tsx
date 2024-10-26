@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 import { SignOutButton } from "./LogoutButton";
-import { IconButton } from "../Buttons/IconButton/IconButton";
+import { IconButton } from "../IconButton";
 
 import placeholder from "../../images/placeholder/profile.jpg";
 

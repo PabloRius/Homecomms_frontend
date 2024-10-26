@@ -8,7 +8,7 @@ interface LoaderProps {
 
 export function Loader({ full = false }: LoaderProps) {
   return (
-    <div className={full ? "full_loader" : "loader"}>
+    <div className={`"Loader ${full ? "Full" : ""}`}>
       <img src={LoadSpinner} alt="Loading spinner" />
     </div>
   );

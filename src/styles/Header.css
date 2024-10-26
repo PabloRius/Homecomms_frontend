@@ -1,4 +1,5 @@
 header {
+  background-color: color-mix(in srgb, white, black 1%);
   position: fixed;
 
   width: 100%;
@@ -12,6 +13,7 @@ header {
 
   font-weight: 400;
   font-size: 16px;
+  z-index: 300;
 
   border-bottom: solid rgb(235, 235, 235) 1px;
 
@@ -81,7 +83,7 @@ header {
 
     padding-right: 20px;
 
-    .ResponsiveIconButton {
+    > .IconButton {
       display: none;
     }
     + * {
@@ -92,6 +94,7 @@ header {
 
 @media screen and (max-width: 1023px) {
   header {
+    position: sticky;
     height: auto;
 
     flex-direction: column;
@@ -105,9 +108,6 @@ header {
       &.ResponsiveHeader {
         height: 0;
       }
-    }
-    + * {
-      padding-top: 150px;
     }
   }
 }
