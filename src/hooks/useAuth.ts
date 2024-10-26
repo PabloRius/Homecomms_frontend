@@ -19,7 +19,7 @@ import { loginPayload, registerPayload } from "../models/User";
 export function useAuth() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading, error } = useSelector(
+  const { loading, error, currentUser } = useSelector(
     (state: { user: appState }) => state.user
   );
   const register = async (registerData: registerPayload) => {
@@ -79,5 +79,5 @@ export function useAuth() {
     }
   };
 
-  return { register, login, logout, error, loading };
+  return { register, login, logout, error, loading, currentUser };
 }

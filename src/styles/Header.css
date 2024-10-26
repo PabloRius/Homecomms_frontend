@@ -1,0 +1,79 @@
+header {
+  position: fixed;
+
+  width: 100%;
+
+  padding: 10px 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  row-gap: 20px;
+
+  font-weight: 400;
+  font-size: 16px;
+
+  border-bottom: solid rgb(235, 235, 235) 1px;
+
+  > div:not(.LogoContainer) {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    transition: height ease 0.5s;
+    overflow: hidden;
+    row-gap: 10px;
+  }
+
+  .LogoContainer {
+    aspect-ratio: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+
+    > img {
+      height: 100%;
+      padding: 5%;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  header {
+    height: 10vh !important;
+
+    padding-right: 20px;
+
+    .ResponsiveIconButton {
+      display: none;
+    }
+    + * {
+      padding-top: 10vh;
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  header {
+    height: auto;
+
+    flex-direction: column;
+    align-items: center;
+    border-bottom: solid rgb(235, 235, 235) 1px;
+
+    > div:not(.LogoContainer) {
+      flex-direction: column;
+      align-items: center;
+
+      &.ResponsiveHeader {
+        height: 0;
+      }
+    }
+    + * {
+      padding-top: 150px;
+    }
+  }
+}

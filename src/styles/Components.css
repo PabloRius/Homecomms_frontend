@@ -1,19 +1,29 @@
-.PrimaryButton {
-  width: var(--buttons-width);
+@import url("./Header.css");
+
+.PrimaryButton,
+.SecondaryButton {
+  width: clamp(80px, 10vw, 110px);
 
   padding: var(--button-padding);
 
-  background-color: var(--main-button-bg);
-  color: var(--main-button-color);
-
-  border-radius: var(--button-border-radius);
-  border-color: var(--main-button-border);
+  border-radius: 8px;
   border-width: var(--button-border-thickness);
   border-style: solid;
 
   transition: box-shadow 0.2s ease;
 
-  font-size: var(--font-size);
+  font-size: clamp(14px, 2vw, 20px);
+
+  &:active {
+    border-style: solid;
+  }
+}
+
+.PrimaryButton {
+  background-color: var(--main-button-bg);
+  color: var(--main-button-color);
+
+  border-color: var(--main-button-border);
 
   &:hover {
     box-shadow: var(--main-button-shadow-hover);
@@ -21,26 +31,14 @@
 
   &:active {
     box-shadow: var(--main-button-shadow-active);
-    border-style: solid;
   }
 }
 
 .SecondaryButton {
-  width: var(--buttons-width);
-
-  padding: var(--button-padding);
-
   background-color: var(--secondary-button-bg);
   color: var(--secondary-button-color);
 
-  border-radius: var(--button-border-radius);
   border-color: var(--secondary-button-border);
-  border-width: var(--button-border-thickness);
-  border-style: solid;
-
-  transition: box-shadow 0.2s ease;
-
-  font-size: var(--font-size);
 
   &:hover {
     box-shadow: var(--secondary-button-shadow-hover);
@@ -48,6 +46,53 @@
 
   &:active {
     box-shadow: var(--secondary-button-shadow-active);
-    border-style: solid;
+  }
+}
+
+.AuthButtons {
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.ProfileMenu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 10px;
+
+  img {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+}
+
+.IconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  aspect-ratio: 1;
+
+  border-radius: 25%;
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+  height: clamp(25px, 4vw, 40px);
+  &:hover {
+    background-color: rgba(128, 128, 128, 0.2);
+  }
+
+  &:active {
+    background-color: rgba(128, 128, 128, 0.5);
   }
 }

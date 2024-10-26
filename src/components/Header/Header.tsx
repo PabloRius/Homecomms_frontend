@@ -1,44 +1,50 @@
-import { NavigationAuth } from "../Auth/NavigationAuth/NavigationAuth";
-import { Logo } from "../brand/Logo/Logo";
-import { IconButton } from "../Buttons/IconButton/IconButton";
-import { NavigationPillList } from "./Navigation/NavigationPillList/NavigationPillList";
-
+import { useState } from "react";
 import { IoMenuSharp } from "react-icons/io5";
 
-import "./Header.css";
-import { useState } from "react";
-// import { NavigationProfile } from "../Auth/NavigationProfile/NavigationProfile";
+import { useAuth } from "../../hooks/useAuth";
+
+import { NavigationPillList } from "./Navigation/NavigationPillList/NavigationPillList";
+
+import { AuthButtons } from "../Auth/AuthButtons";
+import { ProfileMenu } from "../Auth/ProfileMenu";
+
+import LogoImage from "../../images/brand/figma-logo-512.png";
 
 export function Header() {
   const [responsive, setResponsive] = useState(true);
+  const { currentUser } = useAuth();
 
-  const toggleHeader = () => {
+  const toggleResponsive = () => {
     setResponsive((prev) => !prev);
   };
 
-  const logoSize = 50;
-
   return (
-    <header className={`${responsive ? "Responsive" : ""}`}>
-      <Logo size={`${logoSize}px`} />
-      <NavigationPillList
-        list="default"
-        classes={responsive ? ["ResponsiveNav"] : []}
-      />
-      <NavigationAuth classes={responsive ? ["ResponsiveNav"] : []} />
-      {/* {!user && !loading ? (
-        <NavigationAuth classes={responsive ? ["ResponsiveNav"] : []} />
-      ) : !user && loading ? (
-        <></>
-      ) : (
-        <NavigationProfile classes={responsive ? ["ResponsiveNav"] : []} />
-      )} */}
-      <IconButton
-        Icon={IoMenuSharp}
-        callback={toggleHeader}
-        classes={["ResponsiveButton"]}
-        size={"sm"}
-      />
+    <header>
+      <div className="LogoContainer">
+        <img
+          className="LogoPicture"
+          src={LogoImage}
+          alt="Brand logo square sized"
+          style={{ maxHeight: 50 }}
+        />
+      </div>
+      <div className={responsive ? "ResponsiveHeader" : ""}>
+        <NavigationPillList
+          list="default"
+          classes={responsive ? ["ResponsiveNav"] : []}
+        />
+        {currentUser ? <ProfileMenu /> : <AuthButtons />}
+      </div>
+      <button
+        className="IconButton ResponsiveIconButton"
+        onClick={toggleResponsive}
+      >
+        <IoMenuSharp
+          // size={size === "md" ? "24px" : size === "lg" ? "30px" : "18px"}
+          size="24px"
+          color="black"
+        />
+      </button>
     </header>
   );
 }

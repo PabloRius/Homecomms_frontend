@@ -13,6 +13,7 @@ import "@fontsource/inter";
 import "./index.css";
 import "./styles/Palette.css";
 import "./styles/Components.css";
+import "./styles/Temp.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
