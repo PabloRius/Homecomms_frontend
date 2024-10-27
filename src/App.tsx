@@ -10,7 +10,6 @@ import { HubsPage } from "./pages/HubsPage/HubsPage";
 import { Hub } from "./pages/Hub/Hub";
 import { LoginPage } from "./pages/Auth/LoginPage/LoginPage";
 import { RegisterPage } from "./pages/Auth/RegisterPage/RegisterPage";
-
 import "./App.css";
 
 export function App() {
