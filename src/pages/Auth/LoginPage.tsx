@@ -2,18 +2,16 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 
-import "../FormPage.css";
-import { useAuth } from "../../../hooks/useAuth";
-import { registerPayload } from "../../../models/User";
+import { useAuth } from "../../hooks/useAuth";
+import { loginPayload } from "../../models/User";
 
-export function RegisterPage() {
-  const [formData, setFormData] = useState<registerPayload>({
+export function LoginPage() {
+  const [formData, setFormData] = useState<loginPayload>({
     email: "",
     password: "",
-    username: "",
   });
   const [passwordToggle, setPasswordToggle] = useState<boolean>(true);
-  const { register, loading } = useAuth();
+  const { login, loading, error } = useAuth();
 
   const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => {
@@ -23,23 +21,12 @@ export function RegisterPage() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    register(formData);
+    login(formData);
   };
 
   return (
-    <div className="FormContainer">
+    <div className="LoginPage">
       <form onSubmit={handleSubmit}>
-        <label>
-          Username
-          <input
-            disabled={loading}
-            type="text"
-            placeholder="Username123"
-            id="username"
-            value={formData["username"]}
-            onChange={handleChange}
-          />
-        </label>
         <label>
           Email
           <input
@@ -89,13 +76,16 @@ export function RegisterPage() {
             />
           )}
         </label>
-        <input type="submit" value="Register" disabled={loading} />
+        <input type="submit" value="Sign In" disabled={loading} />
         <p className="ExtraLink">
-          Already have an account?<a href="/login">Login</a>
+          <a>Forgot password?</a>
+        </p>
+        <p className="ExtraLink">
+          Don't have an account?<a href="/register">Register</a>
         </p>
       </form>
       {/* <ProviderButton  /> */}
-      {/* <p>{error}</p> */}
+      <p>{error}</p>
     </div>
   );
 }

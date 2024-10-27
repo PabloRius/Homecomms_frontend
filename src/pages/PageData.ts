@@ -2,14 +2,18 @@ import { IconType } from "react-icons";
 
 import { IoIosInformationCircleOutline } from "react-icons/io";
 
-export const VisionData: [
-  { icon: IconType; title: string; content: string },
-  { icon: IconType; title: string; content: string },
-  { icon: IconType; title: string; content: string },
-  { icon: IconType; title: string; content: string },
-  { icon: IconType; title: string; content: string },
-  { icon: IconType; title: string; content: string }
-] = [
+export const ImagesData: Array<{ src: string; alt: string }> = [
+  { src: "https://picsum.photos/512/350", alt: "Random Placeholder image" },
+  { src: "https://picsum.photos/512/350", alt: "Random Placeholder image" },
+];
+
+interface Vision {
+  icon: IconType;
+  title: string;
+  content: string;
+}
+
+export const VisionData: [Vision, Vision, Vision, Vision, Vision, Vision] = [
   {
     icon: IoIosInformationCircleOutline,
     title: "First move-in",
