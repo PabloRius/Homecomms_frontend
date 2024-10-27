@@ -1,3 +1,31 @@
+.LandingPage {
+  display: flex;
+  flex-direction: column;
+
+  .HeroSection {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    align-items: center;
+
+    background: linear-gradient(rgba(235, 235, 235, 0.15), rgba(0, 0, 0, 0));
+
+    padding: 8vw 10%;
+
+    > .Subtitle {
+      text-overflow: ellipsis;
+      text-align: center;
+    }
+  }
+
+  .PresentationSection {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .NotFoundPage {
   display: flex;
   flex-direction: column;

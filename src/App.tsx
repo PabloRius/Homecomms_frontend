@@ -1,5 +1,5 @@
 import { Header } from "./components/Header/Header";
-import { LandingPage } from "./pages/LandingPage/LandingPage";
+import { HomePage } from "./pages/LandingPage/Home";
 import { Footer } from "./components/Footer/Footer";
 import { Outlet, Route, Routes } from "react-router-dom";
 import { NotFoundPage } from "./pages/NotFoundPage";
@@ -17,7 +17,7 @@ export function App() {
     <main className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<HomePage />} />
 
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />

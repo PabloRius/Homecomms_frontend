@@ -14,7 +14,7 @@
 
   transition: box-shadow 0.2s ease;
 
-  font-size: clamp(14px, 2vw, 20px);
+  font-size: clamp(14px, 2vw, 18px);
 
   &:active {
     border-style: solid;
@@ -23,7 +23,7 @@
 
 .PrimaryButton {
   background-color: var(--main);
-  color: white;
+  color: white !important;
 
   border-color: color-mix(in srgb, var(--main), black);
 
@@ -38,7 +38,7 @@
 
 .SecondaryButton {
   background-color: var(--secondary);
-  color: black;
+  color: black !important;
 
   border-color: color-mix(in srgb, var(--secondary), black);
 
@@ -75,6 +75,12 @@
     aspect-ratio: 1;
     border-radius: 50%;
   }
+}
+
+.LobbyButton {
+  width: auto;
+  padding: 4px 10px;
+  text-decoration: none;
 }
 
 .IconButton {

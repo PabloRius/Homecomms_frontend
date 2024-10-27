@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginPayload } from "../models/User";
+import { loggedUser } from "../models/User";
 
 export interface appState {
-  currentUser: loginPayload | null;
+  currentUser: loggedUser | null;
   loading: boolean;
   error: string | null;
 }
