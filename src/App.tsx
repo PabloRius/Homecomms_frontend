@@ -2,7 +2,7 @@ import { Header } from "./components/Header/Header";
 import { LandingPage } from "./pages/LandingPage/LandingPage";
 import { Footer } from "./components/Footer/Footer";
 import { Outlet, Route, Routes } from "react-router-dom";
-import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 import { LobbyPage } from "./pages/LobbyPage/LobbyPage";
 // import { ProtectedRoute } from "./ProtectedRoute";

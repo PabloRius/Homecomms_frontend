@@ -12,6 +12,7 @@ import "@fontsource/inter";
 
 import "./index.css";
 import "./styles/Palette.css";
+import "./styles/Pages.css";
 import "./styles/Components.css";
 import "./styles/Temp.css";
 
